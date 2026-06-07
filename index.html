@@ -26,6 +26,7 @@
   </head>
 
   <body>
+    <audio id="welcomeSound" src="happyBirthdaySong.m4a"></audio>
     <div id="wrapper">
       <div class="flag__birthday">
         <img src="./images/1.png" alt="" width="350" class="flag__left" />
@@ -132,16 +133,16 @@
         <div class="boxMail-container">
           <div class="card1">
             <div class="userImg">
-              <img src="images/unnamed.png" alt="" />
+              <img src="cute1.png" alt="" />
             </div>
             <h4 class="username">
               To: My Dear Pari 💖<span class="underline"></span>
             </h4>
 
             <h3>Happy Birthday</h3>
-            <div class="imageCute">
-              <img src="cute1.png" alt="" />
-            </div>
+            <!-- <div class="imageCute">
+              <img src="cute1.png" alt="" width="100px" />
+            </div> -->
           </div>
           <div class="card2">
             <div class="card2-content">
@@ -157,9 +158,9 @@
                 memory I treasure forever 🫶💘.
               </h2>
 
-              <div class="imageCute2">
+              <!-- <div class="imageCute2">
                 <img src="cute2.png" alt="" />
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -179,6 +180,19 @@
     let currentIndexTitle = 0;
     let date__of__birth = document.querySelector(".date__of__birth span");
     let text__letter = document.querySelector(".text__letter p");
+
+    window.addEventListener("load", () => {
+      const audio = document.getElementById("welcomeSound");
+
+      if (audio) {
+        audio.play().catch((err) => {
+          console.log("Autoplay was blocked:", err);
+        });
+      } else {
+        console.error("Audio element '#welcomeSound' not found.");
+      }
+    });
+
     setTimeout(function () {
       timeDatetxt = setInterval(function () {
         if (currentIndex < charArrDate.length) {
