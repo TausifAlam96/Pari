@@ -26,6 +26,7 @@
   </head>
 
   <body>
+    <button id="playButton" style="display: none">Play Welcome Audio</button>
     <audio id="welcomeSound" src="happyBirthdaySong.m4a"></audio>
     <div id="wrapper">
       <div class="flag__birthday">
@@ -183,14 +184,24 @@
 
     window.addEventListener("load", () => {
       const audio = document.getElementById("welcomeSound");
+      const playButton = document.getElementById("playButton");
 
       if (audio) {
         audio.play().catch((err) => {
-          console.log("Autoplay was blocked:", err);
+          console.log("Autoplay blocked. Prompting user to interact.");
+          // The browser blocked it, so reveal the play button
+          playButton.style.display = "block";
         });
-      } else {
-        console.error("Audio element '#welcomeSound' not found.");
       }
+    });
+
+    // When the user clicks the fallback button, play the sound and hide the button
+    document.getElementById("playButton").addEventListener("click", () => {
+      const audio = document.getElementById("welcomeSound");
+      const playButton = document.getElementById("playButton");
+
+      audio.play();
+      playButton.style.display = "none";
     });
 
     setTimeout(function () {

@@ -26,6 +26,46 @@ body {
   height: 100%;
   background-image: linear-gradient(var(--color-pink), var(--color-pink));
 }
+
+/* Play Button Fallback Styling */
+#playButton {
+  /* Positioning it dead-center on the screen so they can't miss it */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 10000; /* Keeps it above your falling balloons and letters */
+
+  /* Matching your #btn__letter theme */
+  background-color: var(--color-text-pink);
+  color: var(--color-black);
+  font-family: "Sriracha", cursive;
+  font-size: 1.2rem;
+  padding: 10px 25px;
+  border-radius: 50px;
+  border: 3px solid var(--color-black);
+  outline: none;
+  cursor: pointer;
+
+  /* Smooth transitions matching your site's feel */
+  transition: all 0.3s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#playButton:hover {
+  background-color: var(--color-heart);
+  border-color: var(--color-heart);
+  color: var(--color-white);
+  /* Slightly enlarges on hover while keeping it centered */
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#playButton:active {
+  /* That satisfying click "squish" effect you used earlier */
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
 #wrapper {
   position: relative;
   background-color: transparent;
